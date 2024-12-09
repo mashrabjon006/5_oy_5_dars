@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranglarni o'zgartirish o'yini</title>
+    <style>
+        #grid {
+          max-width: 350px;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .block {
+            width: 100px;
+            height: 100px;
+            background-color: lightgray;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+        #resetButton {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ranglarni o'zgartirish o'yini</h1>
+    <div id="info">Harakatlar soni: 0</div>
+    <div id="grid"> </div>
+    <button id="resetButton" style="display: none;">Yana o'ynash</button>
+<script src="main.js"></script>
+   </body>
+</html>

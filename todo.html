@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    #todo-container {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    #todo-input {
+      width: calc(100% - 60px);
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+    }
+    .todo-item.completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <h1>To-Do List</h1>
+  <div id="todo-container">
+    <input type="text" id="todo-input" placeholder="soz kiriting">
+    <button id="add-button">Qo'shish</button>
+    <div id="todo-list"></div>
+  </div>
+
+  <script>
+    const input = document.getElementById('todo-input');
+    const addButton = document.getElementById('add-button');
+    const todoList = document.getElementById('todo-list');
+
+    function addTodo() {
+      const task = input.value.trim();
+      if (task === ''){
+        return alert('toldiring')
+      }
+
+      const todoItem = document.createElement('div');
+      todoItem.className = 'todo-item';
+
+      const taskText = document.createElement('span');
+      taskText.textContent = task;
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = "O'chirish";
+
+      todoItem.appendChild(taskText);
+      todoItem.appendChild(deleteButton);
+      todoList.appendChild(todoItem);
+
+      input.value = '';
+
+      taskText.addEventListener('click', function()  {
+        todoItem.classList.toggle('completed');
+      });
+
+      deleteButton.addEventListener('click', function()  {
+        todoList.removeChild(todoItem);
+      });
+    }
+
+    addButton.addEventListener('click', addTodo);
+  </script>
+</body>
+</html>
